@@ -17,6 +17,7 @@ import {
   createRigidBodyApi,
   createWorldApi
 } from "./api";
+import { RigidBodyState } from "./Physics";
 
 export { CoefficientCombineRule as CoefficientCombineRule } from "@dimforge/rapier3d-compat";
 export { RapierRigidBody, RapierCollider };
@@ -421,6 +422,12 @@ export interface UseRigidBodyOptions extends ColliderProps {
    * Include invisible objects on the collider creation estimation.
    */
   includeInvisible?: boolean;
+
+  /**
+   * Transform the RigidBodyState
+   * @internal
+   */
+  transformState?: (state: RigidBodyState) => RigidBodyState;
 }
 
 // Joints
@@ -441,14 +448,14 @@ export type PrismaticJointParams = [
   body1LocalFrame: Vector3Array,
   body2Anchor: Vector3Array,
   body2LocalFrame: Vector3Array,
-  limits?: [min: number, max: number] 
+  limits?: [min: number, max: number]
 ];
 
 export type RevoluteJointParams = [
   body1Anchor: Vector3Array,
   body2Anchor: Vector3Array,
   axis: Vector3Array,
-  limits?: [min: number, max: number] 
+  limits?: [min: number, max: number]
 ];
 
 export type RigidBodyApiRef = MutableRefObject<undefined | null | RigidBodyApi>;

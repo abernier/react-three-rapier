@@ -3,7 +3,8 @@ export type { RigidBodyApi, WorldApi } from "./api";
 export type { RigidBodyProps } from "./RigidBody";
 export type {
   InstancedRigidBodiesProps,
-  InstancedRigidBodiesApi
+  InstancedRigidBodiesApi,
+  InstancedRigidBodyProps
 } from "./InstancedRigidBodies";
 export type {
   CylinderColliderProps,
